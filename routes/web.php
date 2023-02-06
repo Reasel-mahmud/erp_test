@@ -52,6 +52,9 @@ Route::middleware([
     Route::get('/subCategory_list',[SubCtaegoryController::class,'manageSubCategory'])->name('subCategory.list');
     Route::post('/delete_subCategory', [SubCtaegoryController::class, 'SubCatdelete'])->name('delete.subCategory');
 
-    Route::get('/add_brand',[BrandController::class,'index'])->name('brand.add');
+    Route::get('/add_brand',[BrandController::class,'addBrand'])->name('brand.add');
+    Route::post('/new_brand',[BrandController::class,'saveBrand'])->name('new.brand');
+    Route::get('/brand_list',[BrandController::class,'brandList'])->name('brand.list');
+    Route::post('/brand_delete',[BrandController::class,'brandDelete'])->name('delete.brand');
 
 });

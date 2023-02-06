@@ -23,10 +23,10 @@ Add subCategory
                             <input type="text" class="form-control" name="name"  placeholder="enter Your Sub Category">
                           </div>
                           <div class="md-3">
-                            <select name="category_name" class="form-control">
+                            <select name="category_id" class="form-control">
                                 <option >------------select one------------</option>
                                 @foreach ($categories as $category )
-                                    <option value="{{ $category->name}}">{{ $category->name}}</option>
+                                    <option value="{{ $category->id}}">{{ $category->name}}</option>
                                 @endforeach
                             </select>
 

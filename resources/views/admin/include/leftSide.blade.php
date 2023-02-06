@@ -42,7 +42,7 @@
                 <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{route('brand.add')}}"> Brand Add</a>
-                        {{-- <a class="nav-link" href="{{route('brand.list')}}"> Brand List</a> --}}
+                        <a class="nav-link" href="{{route('brand.list')}}"> Brand List</a>
                     </nav>
                 </div>
 

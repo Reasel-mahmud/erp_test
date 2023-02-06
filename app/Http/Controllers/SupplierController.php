@@ -27,9 +27,7 @@ class SupplierController extends Controller
         $supplier->code =$request->code;
         $supplier->address =$request->address;
         $supplier->save();
-
         return redirect()->route('supplier.list')->with('success', 'Supplier data saved successfully!');
-        // return back()->with('msg','Supplier Added Sucssfully');
     }
 
     public function manageSuppliser(){
