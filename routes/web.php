@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCtaegoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +52,6 @@ Route::middleware([
     Route::get('/subCategory_list',[SubCtaegoryController::class,'manageSubCategory'])->name('subCategory.list');
     Route::post('/delete_subCategory', [SubCtaegoryController::class, 'SubCatdelete'])->name('delete.subCategory');
 
+    Route::get('/add_brand',[BrandController::class,'index'])->name('brand.add');
 
 });
