@@ -6,6 +6,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCtaegoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +57,10 @@ Route::middleware([
     Route::post('/new_brand',[BrandController::class,'saveBrand'])->name('new.brand');
     Route::get('/brand_list',[BrandController::class,'brandList'])->name('brand.list');
     Route::post('/brand_delete',[BrandController::class,'brandDelete'])->name('delete.brand');
+
+    Route::get('/prodcut/add',[ProductController::class,'addProduct'])->name('product.add');
+    Route::post('/prodcut/new',[ProductController::class,'saveProduct'])->name('new.product');
+
+    Route::get('product/list',[ProductController::class,'productManage'])->name('product.list');
 
 });

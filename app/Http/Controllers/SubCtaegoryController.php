@@ -15,7 +15,7 @@ class SubCtaegoryController extends Controller
     public function saveSubCategory(Request $request){
         $categoy = Category::all();
         $categoy = new SubCategory();
-        $categoy->name = $request->name;
+        $categoy->sub_name = $request->sub_name;
         $categoy->category_id = $request->category_id;
         $categoy->decrption = $request->decrption;
         $categoy->save();

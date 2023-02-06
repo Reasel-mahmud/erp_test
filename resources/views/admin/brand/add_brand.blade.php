@@ -17,15 +17,6 @@ Add Brand
             <div class="card mb-4">
                 <div class="card-body">
                     <form action="{{route('new.brand')}}" method="post">
-                        {{-- @if ($errors->any())
-                        <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                             @endforeach
-                            </ul>
-                        </div>
-                     @endif --}}
                         @csrf
                         <div class="mb-3">
                             <label  class="form-label">Name</label>

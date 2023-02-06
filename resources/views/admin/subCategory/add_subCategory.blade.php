@@ -20,7 +20,7 @@ Add subCategory
                         @csrf
                         <div class="mb-3">
                             <label  class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name"  placeholder="enter Your Sub Category">
+                            <input type="text" class="form-control" name="sub_name"  placeholder="enter Your Sub Category">
                           </div>
                           <div class="md-3">
                             <select name="category_id" class="form-control">
@@ -29,7 +29,6 @@ Add subCategory
                                     <option value="{{ $category->id}}">{{ $category->name}}</option>
                                 @endforeach
                             </select>
-
                         </div>
                           <div class="mb-3">
                             <label  class="form-label">Decription</label>

@@ -30,7 +30,9 @@
                         <a class="nav-link" href="{{route('category.list')}}"> Category List</a>
                         <a class="nav-link" href="{{route('subCategory.add')}}">Add  SubCategory</a>
                         <a class="nav-link" href="{{route('subCategory.list')}}"> SubCategory List</a>
-                        {{-- <a class="nav-link" href="{{route('product.add')}}"> Add Product</a> --}}
+                        <a class="nav-link" href="{{route('product.add')}}"> Add Product</a>
+                        <a class="nav-link" href="{{route('product.list')}}"> Add Product</a>
+
 
                     </nav>
                 </div>
