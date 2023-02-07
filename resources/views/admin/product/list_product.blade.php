@@ -54,19 +54,19 @@
                                 <td>
                                     <img width="80" src="{{asset($product->image)}}" alt="">
                                 </td>
-                                <td>{{$product->decrption}}</td>
-                                <td>aa</td>
-                                {{-- <td>
-                                    <div class="d-flex p-2">
-                                        {{-- <a href="{{route('edit',['id'=>$supplier->id])}}" class="btn btn-sm btn-info">edit</a> --}}
-                                        {{-- <form action="{{route('delete.subCategory')}}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="subCategor_id" value="{{$subcategory->id}}">
-                                            <button type="submit" class="btn btn-sm btn-danger ms-2 me-2" onclick="return confirm('Are you sure Delete This!!')" >Delete</button>                                        </form>
-                                        </form> --}}
+                                <td>{{substr($product->decrption,0,3)}}</td>
 
-                                    {{-- </div>
-                                </td> --}}
+                                <td>
+                                    <div class="d-flex p-2">
+                                        <a href="{{route('edit.product',['id'=>$product->id])}}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <form action="{{route('delete.product')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                            <button type="submit" class="btn btn-sm btn-danger ms-2 me-2" onclick="return confirm('Are you sure Delete This!!')" ><i class="fa-sharp fa-solid fa-trash"></i></button>                                        </form>
+                                        </form>
+
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
 

@@ -38,7 +38,7 @@ Add Supplier
                           </div>
                           <div class="mb-3">
                             <label  class="form-label">Code</label>
-                            <input type="text" class="form-control" name="code"  placeholder="enter Code">
+                            <input type="text" class="form-control" name="code" value="DDAAAH-YY" readonly>
                           </div>
                           <div class="mb-3">
                             <label  class="form-label">Address</label>

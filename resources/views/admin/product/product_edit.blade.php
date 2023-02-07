@@ -1,13 +1,13 @@
 @extends('admin.master')
 @section('title')
-Add Product
+Add Edit
 @endsection
 @section('content')
 
 <div class="container-fluid px-4">
     <div class="row">
         <div class="col-md-6">
-            <h4 class="mt-4">Add Product</h4>
+            <h4 class="mt-4">Edit Product</h4>
 
             <div class="card mb-4">
                 <div class="card-body">
@@ -16,57 +16,62 @@ Add Product
             </div>
             <div class="card mb-4">
                 <div class="card-body">
-                    <form action="{{route('new.product')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('update.product')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label  class="form-label"> Product Name</label>
-                            <input type="text" class="form-control @error('product_name') is-invalid @enderror" name="product_name">
-                            @error('product_name')
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                            <input type="text" class="form-control @error('brand_name') is-invalid @enderror" name="product_name" value="{{$product->product_name}}">
+                            @error('brand_name')
                                 <samp class="text-danger">{{ $message }}</samp>
                             @enderror
                           </div>
                           <div class="mb-3">
                             <label  class="form-label">Code</label>
-                            <input type="text" class="form-control" name="code" value="DDAAAH-YY" readonly>
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="code" value="{{$product->code}}" readonly>
+                            @error('slug')
+                                <samp class="text-danger">{{ $message }}</samp>
+                            @enderror
                           </div>
                           <div class="md-3">
-                            <select name="category_id" class="form-control">
-                                <option >------------select one Category Name------------</option>
+                            <label  class="form-label">Category</label>
+                            <select name="category_id"   class="form-control">
                                 @foreach ($categories as $category )
-                                    <option value="{{ $category->id}}">{{ $category->name}}</option>
+                                    <option @selected($category->id == $product->category_id) value="{{ $category->id}}">{{ $category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mt-3">
+                            <label  class="form-label">Subcategory</label>
                             <select name="subCategory_id" class="form-control">
-                                <option >------------select one Subcategory Name------------</option>
                                 @foreach ($subCategories as $subCategory )
-                                    <option value="{{ $subCategory->id}}">{{ $subCategory->sub_name}}</option>
+                                    <option @selected($subCategory->id == $product->subCategory_id) value="{{ $subCategory->id}}">{{ $subCategory->sub_name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mt-3">
+                            <label  class="form-label">Brand Name</label>
                             <select name="brand_id" class="form-control">
-                                <option >------------select one Brand Name------------</option>
                                 @foreach ($brands as $brand )
-                                    <option value="{{ $brand->id}}">{{$brand->brand_name}}</option>
+                                    <option @selected($brand->id == $product->brand_id) value="{{ $brand->id}}">{{$brand->brand_name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mt-3">
                             <label  class="form-label">Price</label>
-                            <input type="text" class="form-control @error('price') is-invalid @enderror" name="price">
-                            @error('price')
+                            <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{$product->price}}">
+                            @error('slug')
                                 <samp class="text-danger">{{ $message }}</samp>
                             @enderror
                           </div>
-                          <div class="mb-3">
+                          <div class="mb-3 mt-2">
                             <label  class="form-label">Image</label>
-                            <input type="file" class="form-control" name="image">
+                            <img width="100" src="{{asset($product->image)}}" alt="" srcset="">
+                            <input type="file" class="form-control mt-1" name="image">
                           </div>
                           <div class="mb-3">
                             <label  class="form-label">Decription</label>
-                            <textarea class="form-control  @error('decrption') is-invalid @enderror" name="decrption" ></textarea>
+                            <textarea class="form-control  @error('decrption') is-invalid @enderror" name="decrption" >{{$product->decrption}}</textarea>
                             @error('decrption')
                                 <samp class="text-danger">{{ $message }}</samp>
                             @enderror

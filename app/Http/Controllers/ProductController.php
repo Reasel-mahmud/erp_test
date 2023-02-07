@@ -18,6 +18,14 @@ class ProductController extends Controller
         return view('admin.product.add_product',compact('categories','subCategories','brands'));
     }
     public function saveProduct(Request $request){
+        $validatedData = $request->validate([
+            'product_name' => 'required',
+            'category_id' => 'required',
+            'subCategory_id' => 'required',
+            'brand_id' => 'required',
+            'price' => 'required',
+            'decrption' => 'required',
+        ]);
         $product = new Product();
         $product->product_name = $request->product_name;
         $product->code = $this->generateUniqueCode();
@@ -53,4 +61,40 @@ class ProductController extends Controller
         // dd($products);
         return view('admin.product.list_product',compact('products'));
     }
+
+
+    public function productEdit($id){
+        $product = Product::find($id);
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $brands = Brand::all();
+        return view('admin.product.product_edit',compact('categories','subCategories','brands','product'));
+    }
+
+    public function deleteProduct(Request $request){
+        $product = Product::find($request->product_id);
+
+        if ($product->image) {
+            if (file_exists($product->image)) {
+
+                unlink($product->image);
+            }
+        }
+        $product->delete();
+        return back();
+    }
+    public function updateProduct(Request $request){
+        $product = Product::find($request->product_id);
+        $product->product_name = $request->product_name;
+        $product->code = $this->generateUniqueCode();
+        $product->category_id = $request->category_id;
+        $product->subCategory_id = $request->subCategory_id;
+        $product->brand_id = $request->brand_id;
+        $product->price = $request->price;
+        $product->image = $this->saveImage($request);
+        $product->decrption = $request->decrption;
+        $product->save();
+        return redirect(route('product.list'));
+    }
+
 }

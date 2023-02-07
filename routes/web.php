@@ -37,19 +37,16 @@ Route::middleware([
     Route::get('/status/{id}', [SupplierController::class, 'status'])->name('status');
     Route::get('/edit/{id}', [SupplierController::class, 'edit'])->name('edit');
     Route::post('/update', [SupplierController::class, 'updateSupplier'])->name('update.supplier');
-
     Route::post('/delete', [SupplierController::class, 'delete'])->name('delete');
 
             // category----Route------------
 
     Route::get('/category_add',[CategoryController::class,'addCategory'])->name('category.add');
     Route::post('/new_category',[CategoryController::class,'saveCategory'])->name('new.category');
-
     Route::get('/category_list',[CategoryController::class,'manageCategory'])->name('category.list');
 
     Route::get('/subCategoryAdd',[SubCtaegoryController::class,'addSubCategory'])->name('subCategory.add');
     Route::post('/new_subCategory',[SubCtaegoryController::class,'saveSubCategory'])->name('new.subCategory');
-
     Route::get('/subCategory_list',[SubCtaegoryController::class,'manageSubCategory'])->name('subCategory.list');
     Route::post('/delete_subCategory', [SubCtaegoryController::class, 'SubCatdelete'])->name('delete.subCategory');
 
@@ -62,5 +59,9 @@ Route::middleware([
     Route::post('/prodcut/new',[ProductController::class,'saveProduct'])->name('new.product');
 
     Route::get('product/list',[ProductController::class,'productManage'])->name('product.list');
+    Route::get('/edit/product/{id}', [ProductController::class, 'productEdit'])->name('edit.product');
+    Route::post('/prodcut/delete',[ProductController::class,'deleteProduct'])->name('delete.product');
+    Route::post('/product/update',[ProductController::class,'updateProduct'])->name('update.product');
+
 
 });

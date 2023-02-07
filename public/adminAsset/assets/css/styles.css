@@ -11699,3 +11699,17 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+.nav-link:hover{
+    background: #f16305;
+    /* color: #000; */
+
+}
+
+.nav-link:hover .sb-nav-link-icon{
+cursor: pointer;
+transition: 0.9s;
+transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+}

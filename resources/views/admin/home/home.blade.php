@@ -12,19 +12,29 @@ BackEnd
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
-                <div class="card-body">Primary Card</div>
+                <div class="card-body"><i class="fa-brands fa-shopify"></i>Category</div>
+
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <a class="small text-white stretched-link" href="#">Total : </a>
+                    <div class="small text-drak">{{$totalCategory}}</div>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-warning text-white mb-4">
-                <div class="card-body">Warning Card</div>
+                <div class="card-body"><i class="fa-solid fa-flag"></i> Brand</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <a class="small text-white stretched-link" href="#">Total Brand :</a>
+                    <div class="small text-white">{{$totalBrand}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body"><i class="fa-solid fa-flag"></i> Product</div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Total Product :</a>
+                    <div class="small text-white">{{$totalProduct}}</div>
                 </div>
             </div>
         </div>

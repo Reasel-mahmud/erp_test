@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Supplier;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class SupplierController extends Controller
 {
     public function addSuppliser(){
@@ -24,11 +24,22 @@ class SupplierController extends Controller
         $supplier = new Supplier();
         $supplier->name =$request->name;
         $supplier->phone_number =$request->phone_number;
-        $supplier->code =$request->code;
+        $supplier->code =$this->generateUniqueCode();
         $supplier->address =$request->address;
         $supplier->save();
         return redirect()->route('supplier.list')->with('success', 'Supplier data saved successfully!');
     }
+
+
+    public function generateUniqueCode()
+    {
+        do {
+            $code = Str::random(3).substr(time(), 6,8).Str::random(3);
+        } while (Supplier::where("code", "=", $code)->first());
+        return strtoupper($code);
+    }
+
+
 
     public function manageSuppliser(){
         $suppliers = Supplier::all();
