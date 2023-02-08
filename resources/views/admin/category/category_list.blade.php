@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
- Supplier List
+ Category List
 @endsection
 @section('content')
 
@@ -37,12 +37,13 @@
 
                                 <td>
                                     <div class="d-flex p-2">
-                                        {{-- <a href="{{route('edit',['id'=>$supplier->id])}}" class="btn btn-sm btn-info">edit</a>
-                                        <form action="{{route('delete')}}" method="post">
+                                        {{-- <a href="{{route('delete',['id'=>$category->id])}}" class="btn btn-sm btn-info">Delete</a> --}}
+                                        {{-- <a href="{{route('edit',['id'=>$supplier->id])}}" class="btn btn-sm btn-info">edit</a> --}}
+                                        <form action="{{route('softCategory.delete')}}" method="post">
                                             @csrf
-                                            <input type="hidden" name="supplier_id" value="{{$supplier->id}}">
+                                            <input type="hidden" name="category_id" value="{{$category->id}}">
                                             <button type="submit" class="btn btn-sm btn-danger ms-2 me-2" onclick="return confirm('Are you sure Delete This!!')" >Delete</button>                                        </form>
-                                        </form> --}}
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

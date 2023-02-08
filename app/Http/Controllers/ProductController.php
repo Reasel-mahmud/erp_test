@@ -39,12 +39,14 @@ class ProductController extends Controller
         return back();
     }
     public function saveImage($request){
+        if($request->hasfile('image')){
         $image =$request->file('image');
         $imageName =rand().'.'.$image->extension();
         $directory ='admin/upload-image/product-image/';
         $imageUrl = $directory.$imageName;
         $image->move($directory,$imageName);
         return $imageUrl;
+        }
     }
 
     public function generateUniqueCode()

@@ -30,14 +30,16 @@ Add Product
                             <input type="text" class="form-control" name="code" value="DDAAAH-YY" readonly>
                           </div>
                           <div class="md-3">
+                            <label  class="form-label">Category</label>
                             <select name="category_id" class="form-control">
-                                <option >------------select one Category Name------------</option>
+                                <option >----select one Category Name---</option>
                                 @foreach ($categories as $category )
                                     <option value="{{ $category->id}}">{{ $category->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mt-3">
+                            <label  class="form-label">SubCategory</label>
                             <select name="subCategory_id" class="form-control">
                                 <option >------------select one Subcategory Name------------</option>
                                 @foreach ($subCategories as $subCategory )
@@ -46,6 +48,7 @@ Add Product
                             </select>
                         </div>
                         <div class="mt-3">
+                            <label  class="form-label">Brand</label>
                             <select name="brand_id" class="form-control">
                                 <option >------------select one Brand Name------------</option>
                                 @foreach ($brands as $brand )

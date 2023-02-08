@@ -3,12 +3,10 @@
  Product List
 @endsection
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h4 class="mt-4">Product List</h4>
-
             <div class="card mb-4">
                 <div class="card-body">
                     <a  href="https://datatables.net/">Add Product</a>
@@ -37,22 +35,16 @@
                             @endphp
                             @foreach ($products as $product )
                             <tr>
-                                {{-- {{$product->subCategory_id}} --}}
                                 <td>{{$i++}}</td>
                                 <td>{{$product->product_name}}</td>
                                 <td>{{$product->code}}</td>
                                 <td>{{$product->category->name}}</td>
-                                {{-- <td>hh</td> --}}
-
                                 <td>{{$product->sub_category->sub_name}}</td>
                                 <td>{{$product->brand->brand_name}}</td>
 
                                 <td>{{$product->price}}</td>
-                                {{-- <td>
-                                    <img src="" alt="">
-                                </td> --}}
                                 <td>
-                                    <img width="80" src="{{asset($product->image)}}" alt="">
+                                    <img width="80" src="{{asset($product->image)}}" alt="Not Found">
                                 </td>
                                 <td>{{substr($product->decrption,0,3)}}</td>
 
@@ -64,15 +56,12 @@
                                             <input type="hidden" name="product_id" value="{{$product->id}}">
                                             <button type="submit" class="btn btn-sm btn-danger ms-2 me-2" onclick="return confirm('Are you sure Delete This!!')" ><i class="fa-sharp fa-solid fa-trash"></i></button>                                        </form>
                                         </form>
-
                                     </div>
                                 </td>
                             </tr>
                             @endforeach
-
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

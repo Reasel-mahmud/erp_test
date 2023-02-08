@@ -42,8 +42,9 @@ Route::middleware([
             // category----Route------------
 
     Route::get('/category_add',[CategoryController::class,'addCategory'])->name('category.add');
+    Route::post('/category/delete',[CategoryController::class,'catDelete'])->name('softCategory.delete');
     Route::post('/new_category',[CategoryController::class,'saveCategory'])->name('new.category');
-    Route::get('/category_list',[CategoryController::class,'manageCategory'])->name('category.list');
+    Route::get('/category/list',[CategoryController::class,'manageCategory'])->name('category.list');
 
     Route::get('/subCategoryAdd',[SubCtaegoryController::class,'addSubCategory'])->name('subCategory.add');
     Route::post('/new_subCategory',[SubCtaegoryController::class,'saveSubCategory'])->name('new.subCategory');
