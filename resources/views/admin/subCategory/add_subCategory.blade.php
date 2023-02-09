@@ -7,14 +7,14 @@ Add subCategory
 <div class="container-fluid px-4">
     <div class="row">
         <div class="col-md-6">
-            <h4 class="mt-4">Add SubCategory</h4>
+            <h4 class="mt-4 text-center text-dark bg-info p-3">Add SubCategory</h4>
 
             <div class="card mb-4">
                 <div class="card-body">
                     <a  href="">Supplier List</a>
                 </div>
             </div>
-            <div class="card mb-4">
+            <div class="card mb-4 offset-md-2">
                 <div class="card-body">
                     <form action="{{route('new.subCategory')}}" method="post">
                         @csrf

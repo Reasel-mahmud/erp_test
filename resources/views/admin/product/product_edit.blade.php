@@ -6,7 +6,7 @@ Add Edit
 
 <div class="container-fluid px-4">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-2">
             <h4 class="mt-4">Edit Product</h4>
 
             <div class="card mb-4">

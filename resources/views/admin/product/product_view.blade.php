@@ -6,8 +6,8 @@ Add Product
 
 <div class="container-fluid px-4">
     <div class="row">
-        <div class="col-md-6">
-            <h4 class="mt-4">Product view</h4>
+        <div class="col-md-6 offset-md-2">
+            <h4 class="mt-4 text-center text-dark bg-info p-3">Product view</h4>
 
             <div class="card mb-4">
                 <div class="card-body">
