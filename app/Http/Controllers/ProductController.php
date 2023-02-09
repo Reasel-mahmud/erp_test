@@ -17,6 +17,8 @@ class ProductController extends Controller
         $brands = Brand::all();
         return view('admin.product.add_product',compact('categories','subCategories','brands'));
     }
+
+
     public function saveProduct(Request $request){
         $validatedData = $request->validate([
             'product_name' => 'required',
@@ -38,6 +40,7 @@ class ProductController extends Controller
         $product->save();
         return back();
     }
+
     public function saveImage($request){
         if($request->hasfile('image')){
         $image =$request->file('image');
@@ -49,8 +52,7 @@ class ProductController extends Controller
         }
     }
 
-    public function generateUniqueCode()
-    {
+    public function generateUniqueCode(){
         do {
             $code = Str::random(3).substr(time(), 6,8).Str::random(3);
         } while (Product::where("code", "=", $code)->first());
@@ -78,7 +80,6 @@ class ProductController extends Controller
 
         if ($product->image) {
             if (file_exists($product->image)) {
-
                 unlink($product->image);
             }
         }
@@ -97,6 +98,11 @@ class ProductController extends Controller
         $product->decrption = $request->decrption;
         $product->save();
         return redirect(route('product.list'));
+    }
+
+    public function productView($id){
+        $product = Product::find($id);
+        return view('admin.product.product_view',compact('product'));
     }
 
 }

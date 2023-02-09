@@ -48,8 +48,10 @@
                                 </td>
                                 <td>{{substr($product->decrption,0,3)}}</td>
 
+
                                 <td>
-                                    <div class="d-flex p-2">
+                                    <div class="d-flex">
+                                        <a href="{{route('view.product',['id'=>$product->id])}}" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>
                                         <a href="{{route('edit.product',['id'=>$product->id])}}" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <form action="{{route('delete.product')}}" method="post">
                                             @csrf

@@ -63,6 +63,11 @@ Route::middleware([
     Route::get('/edit/product/{id}', [ProductController::class, 'productEdit'])->name('edit.product');
     Route::post('/prodcut/delete',[ProductController::class,'deleteProduct'])->name('delete.product');
     Route::post('/product/update',[ProductController::class,'updateProduct'])->name('update.product');
+    Route::get('/view/product/product/{id}', [ProductController::class, 'productView'])->name('view.product');
+    Route::get('/product/pdf/{id}', [ProductController::class, 'productpdf'])->name('pdf.product');
+
+
+
 
 
 });
