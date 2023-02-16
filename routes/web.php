@@ -68,6 +68,11 @@ Route::middleware([
 
 
 
+    // Search route--------------------
+    Route::get('/search_button',[SearchController::class,'index'])->name('search.all');
+
+
+
 
 
 });

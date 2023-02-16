@@ -100,39 +100,31 @@ BackEnd
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            DataTable Example
+            DataTable Product
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Subcatgroy</th>
+                        <th>created_at</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </tfoot>
+
                 <tbody>
+                    @foreach ($products as $product )
                     <tr>
-                        <td>Jena Gaines</td>
-                        <td>Office Manager</td>
-                        <td>London</td>
-                        <td>30</td>
-                        <td>2008/12/19</td>
-                        <td>$90,560</td>
+                        <td>{{$product->product_name}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{{$product->category->name}}</td>
+                        <td>{{$product->sub_category->sub_name}}</td>
+                        <td>{{$product->created_at}}</td>
                     </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -145,5 +137,4 @@ BackEnd
     var _xdata=JSON.parse('{!! json_encode($monthCount) !!}');
 </script>
 {{-- ----------Bar Chart script End--------------- --}}
-
 @endsection

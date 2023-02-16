@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
+        $products = Product::all();
 
 
     if (request()->start_date || request()->end_date) {
@@ -47,6 +48,7 @@ class AdminController extends Controller
             'totalBrand'    =>$totalBrand,
             'totalProduct'  =>$totalProduct,
             'totalSup'      =>$totalSup,
+            'products'      =>$products
         ]);
     }
 }
